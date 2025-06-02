@@ -1,3 +1,4 @@
+using Identity.Extensions;
 using Identity.Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -68,23 +69,7 @@ builder.Services.AddAuthentication(x =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json","My API");
-    });
-}
-#region Config.CORS
-app.UseCors();
-#endregion
-app.UseAuthentication();
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
