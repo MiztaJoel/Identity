@@ -39,4 +39,3 @@ namespace Identity.Controllers
 		}
 	}
 }
-\
